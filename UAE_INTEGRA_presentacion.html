@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Presentación del proyecto institucional UAE Integra: Sistema de Gestión Académica y Aula Virtual.">
+  <title>UAE Integra | Presentación del proyecto</title>
+  <style>
+    :root {
+      --green-950: #052e24;
+      --green-900: #073f30;
+      --green-800: #0b5943;
+      --green-700: #0d7555;
+      --green-600: #149267;
+      --green-100: #dff5eb;
+      --green-50: #f0fbf6;
+      --gold: #d9a928;
+      --gold-soft: #f8e8b6;
+      --ink: #17231e;
+      --muted: #5f6f67;
+      --line: #dce6e1;
+      --paper: #ffffff;
+      --surface: #f5f8f6;
+      --shadow: 0 18px 45px rgba(5, 46, 36, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--green-700); font-weight: 800; font-size: .78rem;
+      letter-spacing: .13em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 3px; background: var(--gold); border-radius: 3px; }
+    h1, h2, h3 { line-height: 1.13; margin: 0; }
+    h2 { font-size: clamp(2rem, 4vw, 3.35rem); letter-spacing: -.045em; }
+    h3 { font-size: 1.12rem; }
+    p { margin: 0; }
+    section { padding: 92px 0; }
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-head h2 { margin: 12px 0 16px; }
+    .section-head p { color: var(--muted); font-size: 1.05rem; }
+
+    /* Navegación */
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.93); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(220,230,225,.9);
+    }
+    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -.02em; }
+    .brand-mark {
+      width: 39px; height: 39px; display: grid; place-items: center;
+      color: white; background: var(--green-800); border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(11,89,67,.25);
+    }
+    .brand-mark svg { width: 22px; height: 22px; }
+    .brand small { display: block; color: var(--muted); font-size: .64rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 23px; color: #425149; font-size: .9rem; font-weight: 700; }
+    .nav-links a:hover { color: var(--green-700); }
+    .nav-cta { padding: 10px 16px; color: white !important; background: var(--green-800); border-radius: 10px; }
+
+    /* Portada */
+    .hero {
+      position: relative; min-height: 690px; display: grid; align-items: center;
+      overflow: hidden; color: white; background:
+        radial-gradient(circle at 83% 20%, rgba(217,169,40,.22), transparent 23%),
+        radial-gradient(circle at 70% 80%, rgba(20,146,103,.28), transparent 28%),
+        linear-gradient(125deg, var(--green-950), #064936 64%, #0b5c43);
+    }
+    .hero::before, .hero::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; }
+    .hero::before { width: 520px; height: 520px; right: -120px; top: 30px; }
+    .hero::after { width: 310px; height: 310px; right: 25px; top: 135px; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.12fr .88fr; align-items: center; gap: 70px; }
+    .hero .eyebrow { color: #bcebd7; }
+    .hero h1 { max-width: 700px; margin: 18px 0 22px; font-size: clamp(3.4rem, 8vw, 6.8rem); letter-spacing: -.075em; }
+    .hero h1 span { display: block; color: var(--gold-soft); }
+    .hero-copy > p { max-width: 660px; color: #d9e9e2; font-size: 1.17rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 32px; }
+    .btn { display: inline-flex; align-items: center; gap: 9px; padding: 13px 20px; border-radius: 12px; font-weight: 800; transition: .2s ease; }
+    .btn-primary { color: var(--green-950); background: var(--gold-soft); }
+    .btn-secondary { border: 1px solid rgba(255,255,255,.3); }
+    .btn:hover { transform: translateY(-2px); }
+    .hero-card {
+      position: relative; padding: 29px; background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18); border-radius: 25px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.18); backdrop-filter: blur(12px);
+    }
+    .hero-card-label { color: #bcebd7; font-size: .78rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .system-flow { display: grid; gap: 14px; margin: 20px 0; }
+    .system-box { display: flex; align-items: center; gap: 15px; padding: 18px; color: var(--ink); background: white; border-radius: 16px; }
+    .system-box:nth-child(2) { background: var(--gold-soft); }
+    .system-icon { flex: 0 0 45px; width: 45px; height: 45px; display: grid; place-items: center; color: white; background: var(--green-700); border-radius: 13px; }
+    .system-box strong { display: block; }
+    .system-box small { color: var(--muted); }
+    .connection { display: flex; align-items: center; justify-content: center; height: 18px; color: #bcebd7; font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .hero-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; }
+    .hero-meta div { padding-top: 14px; border-top: 1px solid rgba(255,255,255,.18); }
+    .hero-meta strong { display: block; color: white; font-size: 1.16rem; }
+    .hero-meta span { color: #bdd2c9; font-size: .75rem; }
+
+    /* Resumen */
+    .overview { background: var(--surface); }
+    .overview-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 65px; align-items: start; }
+    .statement { font-size: clamp(1.55rem, 3vw, 2.45rem); line-height: 1.3; letter-spacing: -.035em; }
+    .statement strong { color: var(--green-700); }
+    .overview-copy { display: grid; gap: 22px; color: var(--muted); }
+    .key-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 45px; }
+    .key { padding: 24px; background: white; border: 1px solid var(--line); border-radius: 18px; }
+    .key strong { display: block; color: var(--green-800); font-size: 1.55rem; }
+    .key span { color: var(--muted); font-size: .84rem; }
+
+    /* Componentes */
+    .component-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .component { position: relative; overflow: hidden; padding: 36px; border: 1px solid var(--line); border-radius: 25px; }
+    .component:first-child { color: white; background: var(--green-900); border-color: var(--green-900); }
+    .component-badge { display: inline-flex; padding: 6px 10px; margin-bottom: 20px; color: var(--green-800); background: var(--green-100); border-radius: 999px; font-size: .72rem; font-weight: 900; text-transform: uppercase; }
+    .component:first-child .component-badge { color: var(--green-950); background: var(--gold-soft); }
+    .component h3 { font-size: 1.85rem; margin-bottom: 12px; }
+    .component > p { margin-bottom: 25px; color: var(--muted); }
+    .component:first-child > p { color: #cee1d9; }
+    .feature-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .feature-list li { display: flex; gap: 9px; align-items: flex-start; font-size: .9rem; }
+    .feature-list li::before { content: "✓"; flex: 0 0 21px; width: 21px; height: 21px; display: grid; place-items: center; color: white; background: var(--green-600); border-radius: 50%; font-size: .68rem; font-weight: 900; }
+    .note { margin-top: 25px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+
+    /* Objetivos */
+    .objectives { background: var(--green-50); }
+    .goal { display: grid; grid-template-columns: 110px 1fr; gap: 30px; padding: 32px; margin-bottom: 24px; background: white; border: 1px solid var(--line); border-radius: 22px; }
+    .goal-number { color: var(--green-700); font-size: 3rem; line-height: 1; font-weight: 900; letter-spacing: -.06em; }
+    .goal h3 { margin-bottom: 9px; font-size: 1.35rem; }
+    .goal p { color: var(--muted); }
+    .objective-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .objective { padding: 24px; background: white; border: 1px solid var(--line); border-radius: 18px; }
+    .objective-icon { width: 43px; height: 43px; display: grid; place-items: center; margin-bottom: 18px; color: var(--green-700); background: var(--green-100); border-radius: 12px; }
+    .objective p { margin-top: 8px; color: var(--muted); font-size: .9rem; }
+
+    /* Integración */
+    .integration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: center; }
+    .integration-map { padding: 28px; background: var(--green-950); border-radius: 26px; box-shadow: var(--shadow); }
+    .node { padding: 19px; color: white; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.13); border-radius: 16px; }
+    .node strong { display: block; color: var(--gold-soft); }
+    .node small { color: #c9ddd5; }
+    .node-center { margin: 14px 34px; text-align: center; background: var(--green-700); }
+    .node-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .integration-copy { display: grid; gap: 18px; }
+    .integration-item { display: grid; grid-template-columns: 42px 1fr; gap: 15px; }
+    .integration-item span { width: 42px; height: 42px; display: grid; place-items: center; color: var(--green-700); background: var(--green-100); border-radius: 12px; font-weight: 900; }
+    .integration-item p { margin-top: 5px; color: var(--muted); font-size: .9rem; }
+
+    /* Cronograma */
+    .timeline-section { color: white; background: var(--green-950); }
+    .timeline-section .eyebrow { color: #bcebd7; }
+    .timeline-section .section-head p { color: #bdd2c9; }
+    .timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .timeline::before { content: ""; position: absolute; left: 4%; right: 4%; top: 25px; height: 2px; background: rgba(255,255,255,.16); }
+    .phase { position: relative; padding-top: 58px; }
+    .phase-dot { position: absolute; top: 13px; left: 0; width: 25px; height: 25px; background: var(--gold); border: 7px solid var(--green-950); border-radius: 50%; box-shadow: 0 0 0 1px rgba(255,255,255,.2); }
+    .phase-card { height: 100%; padding: 24px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; }
+    .phase-time { color: var(--gold-soft); font-size: .77rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .phase h3 { margin: 8px 0 10px; }
+    .phase p { color: #bfd2ca; font-size: .86rem; }
+
+    /* Beneficios y control */
+    .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .benefit { padding: 28px; border: 1px solid var(--line); border-radius: 19px; transition: .2s ease; }
+    .benefit:hover { transform: translateY(-4px); border-color: #abd6c3; box-shadow: var(--shadow); }
+    .benefit .objective-icon { margin-bottom: 17px; }
+    .benefit p { margin-top: 9px; color: var(--muted); font-size: .9rem; }
+
+    .assurance { background: var(--surface); }
+    .assurance-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: start; }
+    .checklist { display: grid; gap: 10px; }
+    .check { display: flex; align-items: center; gap: 13px; padding: 17px 19px; background: white; border: 1px solid var(--line); border-radius: 14px; font-weight: 700; }
+    .check span { flex: 0 0 27px; width: 27px; height: 27px; display: grid; place-items: center; color: white; background: var(--green-700); border-radius: 8px; }
+
+    /* Riesgos */
+    .risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .risk { padding: 22px; border-left: 5px solid var(--gold); background: var(--surface); border-radius: 0 15px 15px 0; }
+    .risk small { color: #9b6811; font-weight: 900; text-transform: uppercase; }
+    .risk h3 { margin: 5px 0 7px; }
+    .risk p { color: var(--muted); font-size: .88rem; }
+
+    /* Cierre */
+    .closing { padding: 80px 0; color: white; background: linear-gradient(120deg, var(--green-800), var(--green-950)); }
+    .closing-inner { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 40px; }
+    .closing h2 { margin: 12px 0 14px; max-width: 760px; }
+    .closing p { max-width: 760px; color: #cae0d6; }
+    .status { min-width: 230px; padding: 24px; text-align: center; color: var(--ink); background: var(--gold-soft); border-radius: 18px; }
+    .status strong { display: block; color: var(--green-900); font-size: 1.55rem; }
+    footer { padding: 28px 0; color: var(--muted); background: #f3f6f4; font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 25px; }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { min-height: auto; padding: 85px 0; }
+      .hero-grid, .overview-grid, .integration-grid, .assurance-grid { grid-template-columns: 1fr; }
+      .hero-card { max-width: 620px; }
+      .key-grid, .timeline { grid-template-columns: repeat(2, 1fr); }
+      .timeline::before { display: none; }
+      .phase { padding-top: 38px; }
+      .phase-dot { top: 4px; }
+      .objective-grid, .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+      .closing-inner { grid-template-columns: 1fr; }
+      .status { max-width: 300px; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 26px, 1120px); }
+      section { padding: 70px 0; }
+      .brand small { display: none; }
+      .nav-cta { font-size: .8rem; }
+      .hero h1 { font-size: 3.45rem; }
+      .hero-grid { gap: 45px; }
+      .hero-meta, .key-grid, .component-grid, .objective-grid, .benefit-grid, .risk-grid, .timeline { grid-template-columns: 1fr; }
+      .feature-list { grid-template-columns: 1fr; }
+      .goal { grid-template-columns: 1fr; gap: 15px; }
+      .goal-number { font-size: 2rem; }
+      .node-row { grid-template-columns: 1fr; }
+      .node-center { margin-inline: 0; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media print {
+      .nav { position: static; }
+      .hero { min-height: 650px; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      section { break-inside: avoid; }
+      .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand" aria-label="UAE Integra, inicio">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9l8-4 8 4v10M8 19v-6h8v6M2 19h20"/></svg>
+        </span>
+        <span>UAE INTEGRA<small>Proyecto institucional</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#proyecto">Proyecto</a><a href="#componentes">Componentes</a><a href="#cronograma">Cronograma</a><a href="#seguridad">Garantías</a>
+        <a class="nav-cta" href="#cierre">Visión ejecutiva</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Universidad Agraria del Ecuador</span>
+        <h1>UAE <span>INTEGRA</span></h1>
+        <p>Sistema de Gestión Académica y Aula Virtual: una plataforma institucional para conectar procesos, personas y aprendizaje en una experiencia digital segura y coherente.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#proyecto">Conocer el proyecto <span>→</span></a>
+          <a class="btn btn-secondary" href="#cronograma">Ver implementación</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Arquitectura general del proyecto">
+        <span class="hero-card-label">Ecosistema digital integrado</span>
+        <div class="system-flow">
+          <div class="system-box">
+            <span class="system-icon"><svg viewBox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20v-8h8v8M2 20h20"/></svg></span>
+            <span><strong>Sistema de Gestión Académica</strong><small>Núcleo del ciclo académico institucional</small></span>
+          </div>
+          <div class="connection">Identidad · datos · interoperabilidad</div>
+          <div class="system-box">
+            <span class="system-icon"><svg viewBox="0 0 24 24"><path d="M3 5h18v12H3zM8 21h8M12 17v4M8 10l3 2 5-4"/></svg></span>
+            <span><strong>Aula Virtual</strong><small>Entorno de enseñanza y aprendizaje</small></span>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <div><strong>365 días</strong><span>Horizonte contractual</span></div>
+          <div><strong>SaaS</strong><span>Modalidad tecnológica</span></div>
+          <div><strong>4 sedes</strong><span>Cobertura institucional</span></div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="overview" id="proyecto">
+      <div class="container">
+        <div class="overview-grid">
+          <div>
+            <span class="eyebrow">Resumen ejecutivo</span>
+            <p class="statement">Una solución para pasar de información fragmentada a una gestión académica <strong>integrada, trazable y medible.</strong></p>
+          </div>
+          <div class="overview-copy">
+            <p>UAE INTEGRA propone implementar dos componentes centrales: un Sistema de Gestión Académica que articule los procesos institucionales y un Aula Virtual conectada con la estructura académica, las identidades y los datos autorizados del SGA.</p>
+            <p>La solución se plantea bajo modalidad SaaS e incorpora migración y conciliación de datos, integraciones, pruebas, capacitación, comunicación, soporte, continuidad y reversibilidad.</p>
+          </div>
+        </div>
+        <div class="key-grid">
+          <div class="key"><strong>2</strong><span>componentes centrales</span></div>
+          <div class="key"><strong>4</strong><span>hitos de ejecución</span></div>
+          <div class="key"><strong>6</strong><span>frentes de trabajo</span></div>
+          <div class="key"><strong>100%</strong><span>enfoque institucional</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="componentes">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Arquitectura funcional</span>
+          <h2>Dos componentes, una sola experiencia institucional</h2>
+          <p>El SGA administra el ciclo académico. El Aula Virtual amplía esa base hacia la enseñanza y el aprendizaje digital.</p>
+        </div>
+        <div class="component-grid">
+          <article class="component">
+            <span class="component-badge">Componente 01 · Núcleo</span>
+            <h3>Sistema de Gestión Académica</h3>
+            <p>Centraliza los procesos académicos y articula los servicios conexos previstos en el proyecto.</p>
+            <ul class="feature-list">
+              <li>Admisión y nivelación</li><li>Matrícula y registro</li>
+              <li>Oferta y períodos</li><li>Gestión curricular</li>
+              <li>Evaluación</li><li>Titulación y posgrado</li>
+              <li>Mesa de Ayuda</li><li>Recaudación</li>
+              <li>Investigación</li><li>Vinculación y Bienestar</li>
+            </ul>
+          </article>
+          <article class="component">
+            <span class="component-badge">Componente 02 · Aprendizaje</span>
+            <h3>Aula Virtual</h3>
+            <p>Entorno digital integrado con el SGA para apoyar la actividad académica de docentes y estudiantes.</p>
+            <ul class="feature-list">
+              <li>Acceso por identidad institucional</li><li>Espacios académicos sincronizados</li>
+              <li>Recursos y actividades</li><li>Comunicación académica</li>
+              <li>Evaluaciones y seguimiento</li><li>Soporte y trazabilidad</li>
+            </ul>
+            <div class="note"><strong>Nota de alcance:</strong> sus funcionalidades definitivas deberán ser ratificadas por la UAE antes de incorporarse contractualmente.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="objectives" id="objetivos">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Dirección estratégica</span>
+          <h2>Objetivos del proyecto</h2>
+        </div>
+        <article class="goal">
+          <div class="goal-number">01</div>
+          <div><h3>Objetivo general</h3><p>Implementar y poner en operación un SGA integrado con un Aula Virtual, bajo modalidad SaaS, que fortalezca la gestión del ciclo académico y la experiencia digital de enseñanza-aprendizaje, garantizando interoperabilidad, seguridad, datos confiables, capacitación, soporte, continuidad y gestión del cambio.</p></div>
+        </article>
+        <div class="objective-grid">
+          <article class="objective"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M4 20V7l8-4 8 4v13M8 20v-8h8v8"/></svg></div><h3>Implementar el SGA</h3><p>Configurar y validar los procesos académicos y servicios conexos definidos por la UAE.</p></article>
+          <article class="objective"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M3 5h18v12H3zM8 21h8M12 17v4"/></svg></div><h3>Habilitar el Aula Virtual</h3><p>Integrarla con las identidades y la estructura académica una vez ratificado su alcance.</p></article>
+          <article class="objective"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M6 3h12v18H6zM9 11h6M9 15h6"/></svg></div><h3>Migrar y conciliar</h3><p>Asegurar calidad, integridad, exactitud, seguridad y trazabilidad de la información.</p></article>
+          <article class="objective"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8M5 5l14 14M19 5 5 19"/></svg></div><h3>Interoperar</h3><p>Implementar interfaces documentadas y estándares abiertos entre plataformas.</p></article>
+          <article class="objective"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M5 19v-7M12 19V5M19 19v-4"/></svg></div><h3>Formar y adoptar</h3><p>Capacitar por perfiles y acompañar el cambio con comunicación clara y oportuna.</p></article>
+          <article class="objective"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7zM9 12l2 2 4-5"/></svg></div><h3>Operar con garantías</h3><p>Medir SLA, soporte, mantenimiento, respaldos, continuidad y reversibilidad.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="integracion">
+      <div class="container integration-grid">
+        <div class="integration-map" aria-label="Modelo de integración">
+          <div class="node-row"><div class="node"><strong>Estudiantes</strong><small>Trámites, servicios y aprendizaje</small></div><div class="node"><strong>Docentes</strong><small>Gestión y actividad académica</small></div></div>
+          <div class="node node-center"><strong>Identidad institucional</strong><small>Autenticación · roles · perfiles · trazabilidad</small></div>
+          <div class="node-row"><div class="node"><strong>SGA</strong><small>Fuente académica institucional</small></div><div class="node"><strong>Aula Virtual</strong><small>Actividad de aprendizaje</small></div></div>
+        </div>
+        <div>
+          <div class="section-head">
+            <span class="eyebrow">Modelo de integración</span>
+            <h2>Información conectada, responsabilidades claras</h2>
+            <p>La integración transversal mantiene coherencia entre usuarios, estructura académica, operación y datos.</p>
+          </div>
+          <div class="integration-copy">
+            <div class="integration-item"><span>1</span><div><h3>Identidad única</h3><p>Accesos, autenticación, roles y perfiles institucionales para cada tipo de usuario.</p></div></div>
+            <div class="integration-item"><span>2</span><div><h3>Sincronización académica</h3><p>Períodos, oferta, asignaturas, paralelos y matrículas autorizadas.</p></div></div>
+            <div class="integration-item"><span>3</span><div><h3>Control transversal</h3><p>Interfaces documentadas, auditoría, soporte, seguridad y monitoreo continuo.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline-section" id="cronograma">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Plan de ejecución</span>
+          <h2>Una implementación progresiva en cuatro hitos</h2>
+          <p>El proyecto combina preparación, configuración, migración, pruebas, capacitación, operación y cierre durante 365 días calendario.</p>
+        </div>
+        <div class="timeline">
+          <article class="phase"><span class="phase-dot"></span><div class="phase-card"><span class="phase-time">Días 1–30</span><h3>Hito 1 · Preparación</h3><p>Plan de trabajo, arquitectura, ambientes, seguridad, migración, integraciones, pruebas y continuidad.</p></div></article>
+          <article class="phase"><span class="phase-dot"></span><div class="phase-card"><span class="phase-time">Días 31–90</span><h3>Hito 2 · Fase I</h3><p>Docencia, Mesa de Ayuda y Recaudación; migración inicial, integraciones, pruebas y capacitación.</p></div></article>
+          <article class="phase"><span class="phase-dot"></span><div class="phase-card"><span class="phase-time">Días 91–150</span><h3>Hito 3 · Fase II</h3><p>Investigación, Vinculación y Bienestar; migración final, pruebas, integraciones y capacitación.</p></div></article>
+          <article class="phase"><span class="phase-dot"></span><div class="phase-card"><span class="phase-time">Días 151–365</span><h3>Hito 4 · Operación</h3><p>Servicio SaaS, soporte, SLA, respaldos, continuidad, transferencia de conocimiento, reversibilidad y cierre.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Valor institucional</span>
+          <h2>Resultados que transforman la experiencia universitaria</h2>
+          <p>Más que instalar software, UAE INTEGRA ordena datos, simplifica procesos y fortalece la toma de decisiones.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg></div><h3>Información confiable</h3><p>Una fuente institucional con datos conciliados, protegidos y disponibles.</p></article>
+          <article class="benefit"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></svg></div><h3>Menos reprocesos</h3><p>Flujos integrados que reducen duplicidad, tareas manuales y errores.</p></article>
+          <article class="benefit"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M4 18l5-5 3 3 7-9M16 7h3v3"/></svg></div><h3>Decisiones medibles</h3><p>Reportería, trazabilidad e indicadores para gestionar con evidencia.</p></article>
+          <article class="benefit"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M7 11a5 5 0 0110 0v2h2v7H5v-7h2zM9 13v-2a3 3 0 016 0v2"/></svg></div><h3>Seguridad integral</h3><p>Identidades, cifrado, auditoría, respaldos y recuperación probada.</p></article>
+          <article class="benefit"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg></div><h3>Escalabilidad SaaS</h3><p>Infraestructura, actualización, monitoreo y escalamiento como servicio.</p></article>
+          <article class="benefit"><div class="objective-icon"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 101.8-5M4 4v5h5"/></svg></div><h3>Continuidad y salida</h3><p>Portabilidad, reversibilidad y control de los datos desde el inicio.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="assurance" id="seguridad">
+      <div class="container assurance-grid">
+        <div class="section-head">
+          <span class="eyebrow">Calidad y aceptación</span>
+          <h2>Garantías para una operación confiable</h2>
+          <p>Cada hito debe sostenerse con evidencia verificable, criterios de aceptación y niveles de servicio ratificados.</p>
+        </div>
+        <div class="checklist">
+          <div class="check"><span>✓</span> Pruebas funcionales aprobadas por responsables designados</div>
+          <div class="check"><span>✓</span> Migración con integridad, exactitud y conciliación documentada</div>
+          <div class="check"><span>✓</span> Integraciones probadas mediante interfaces documentadas</div>
+          <div class="check"><span>✓</span> Controles de seguridad, rendimiento, respaldo y continuidad</div>
+          <div class="check"><span>✓</span> Capacitación con registros, evaluaciones y materiales</div>
+          <div class="check"><span>✓</span> SLA para disponibilidad, respuesta, resolución y escalamiento</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="riesgos">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Gestión preventiva</span><h2>Riesgos prioritarios y respuesta</h2><p>Anticipar los puntos críticos protege el alcance, los plazos y la adopción del proyecto.</p></div>
+        <div class="risk-grid">
+          <article class="risk"><small>Impacto alto</small><h3>Alcance del Aula Virtual</h3><p>Ratificar formalmente su matriz funcional antes de exigir funcionalidades contractuales.</p></article>
+          <article class="risk"><small>Impacto alto</small><h3>Calidad de datos</h3><p>Ejecutar depuración, migraciones de prueba, conciliación y aprobación funcional.</p></article>
+          <article class="risk"><small>Impacto alto</small><h3>Integraciones tardías</h3><p>Inventariar interfaces, asignar responsables y probar progresivamente.</p></article>
+          <article class="risk"><small>Impacto alto</small><h3>Baja adopción</h3><p>Aplicar comunicación segmentada, capacitación y soporte reforzado.</p></article>
+          <article class="risk"><small>Impacto alto</small><h3>Seguridad y privacidad</h3><p>Implementar accesos, cifrado, auditoría, incidentes y continuidad.</p></article>
+          <article class="risk"><small>Impacto alto</small><h3>Dependencia del proveedor</h3><p>Exigir estándares abiertos, documentación, transferencia y reversibilidad.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing" id="cierre">
+      <div class="container closing-inner">
+        <div><span class="eyebrow">Visión ejecutiva</span><h2>Integrar hoy para gestionar mejor el futuro académico</h2><p>UAE INTEGRA propone una ruta progresiva, medible y segura para conectar la gestión académica con el aprendizaje virtual. Su éxito dependerá de gobernanza activa, alcance formalizado, datos confiables y acompañamiento continuo a la comunidad universitaria.</p></div>
+        <div class="status"><span>Estado del documento</span><strong>Borrador</strong><small>Nombre sujeto a aprobación</small></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner"><span>UAE INTEGRA · Sistema de Gestión Académica + Aula Virtual</span><span>Unidad técnica requirente: Centro de Cómputo</span></div>
+  </footer>
+</body>
+</html>
